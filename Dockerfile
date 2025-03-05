@@ -7,7 +7,7 @@ RUN echo "server { \
     root /var/www/html/webui-aria2; \
     index index.html; \
     }" > /etc/nginx/sites-available/default
-RUN mkdir /aria2 && echo "dir=/aria2/downloads\nenable-rpc=true\nrpc-listen-all=true\nrpc-listen-port=6800\nrpc-secret=YOUR_SECRET_TOKEN" > /aria2/aria2.conf
+RUN mkdir /aria2 && echo "dir=/aria2/downloads\nenable-rpc=true\nrpc-listen-all=true\nrpc-listen-port=6800\nrpc-secret=admin123" > /aria2/aria2.conf
 RUN mkdir /aria2/downloads
 RUN echo "#!/bin/bash\naria2c --conf-path=/aria2/aria2.conf &\nnginx -g 'daemon off;'" > /start.sh && chmod +x /start.sh
 EXPOSE 80
